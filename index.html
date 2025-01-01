@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Password Manager</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="manifest" href="/manifest.json">
+</head>
+<body>
+  <header>
+    <h1>Password Manager</h1>
+  </header>
+  <main>
+    <section class="add-password">
+      <h2>Add Password</h2>
+      <form id="passwordForm">
+        <label for="service">Service Name:</label>
+        <input type="text" id="service" name="service" required>
+
+        <label for="login">Login:</label>
+        <input type="text" id="login" name="login" required>
+
+        <label for="password">Password:</label>
+        <input type="text" id="password" name="password" required>
+
+        <button type="button" id="generatePassword">Generate Password</button>
+        <button type="submit">Save</button>
+      </form>
+    </section>
+
+    <section class="password-list">
+      <h2>Saved Passwords</h2>
+      <ul id="passwordList"></ul>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+    <script>
+      if('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('/service-worker.js', { scope: '/' });
+      }
+    </script>
+</body>
+</html>
